@@ -5,7 +5,7 @@ import Image from "next/image";
 
 type Language = "de" | "ti";
 
-const BOOKING_URL = "https://calendly.com/";
+const BOOKING_URL = "https://calendly.com/abrham-habtom/30min";
 
 const content = {
   de: {
@@ -148,8 +148,8 @@ const content = {
     ],
     footerTop: "© 2025 Karvio | Schweiz",
     footerMiddle: "IT Support · Karriereberatung · Bewerbungsservice · Digitale Kompetenz",
-    footerContact: "[email protected] | Tel. 078 313 00 13",
-    footerLinks: ["LinkedIn", "Instagram"],
+    footerContact: "abrham.habtom@outlook.com | Tel. 078 313 00 13",
+    footerLinks: [],
   },
   ti: {
     brand: "Karvio",
@@ -333,8 +333,8 @@ const content = {
     ],
     footerTop: "© 2025 Karvio | Schweiz",
     footerMiddle: "IT Support · Karriereberatung · Bewerbungsservice · Digitale Kompetenz",
-    footerContact: "[email protected] | Tel. 078 313 00 13",
-    footerLinks: ["LinkedIn", "Instagram"],
+    footerContact: "abrham.habtom@outlook.com | Tel. 078 313 00 13",
+    footerLinks: [],
   },
 } as const;
 
@@ -625,7 +625,7 @@ export default function Home() {
                   }`}
                 >
                   <div
-                    className={`relative overflow-hidden rounded-full border-4 border-white shadow-lg ${
+                    className={`relative translate-x-2 overflow-hidden rounded-full border-4 border-white shadow-lg ${
                       member.featured ? "h-52 w-52 ring-4 ring-sky-100" : "h-32 w-32"
                     }`}
                   >
