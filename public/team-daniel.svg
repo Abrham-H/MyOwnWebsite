@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCE7F3"/>
+      <stop offset="1" stop-color="#CFFAFE"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg3)"/>
+  <circle cx="400" cy="250" r="120" fill="#0F172A" fill-opacity="0.08"/>
+  <circle cx="400" cy="220" r="72" fill="#8B5CF6"/>
+  <rect x="275" y="300" width="250" height="170" rx="88" fill="#7C3AED"/>
+  <text x="400" y="545" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">
+    Daniel Kidane
+  </text>
+</svg>
