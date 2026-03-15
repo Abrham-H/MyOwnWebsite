@@ -1,69 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+import { karvioServices } from "@/lib/karvio-services";
 
 const BOOKING_URL = "https://calendly.com/abrham-habtom/30min";
-
-const services = [
-  {
-    title: "IT Support & Beratung Schweiz",
-    text: "Technische Hilfe für Privatpersonen und kleine Unternehmen (KMU) in der Schweiz",
-    points: [
-      "Systemreinigung und Optimierung zur Leistungsverbesserung",
-      "Datenschutz und Datenverlust-Prävention",
-      "Computersicherheit und Schutzlösungen",
-      "PC- und Notebook-Service",
-      "Aufrüstung und Upgrades",
-      "Beratung beim Neukauf von Geräten",
-      "Software-Installationen und Konfigurationen",
-      "Hilfe mit E-Mail, WLAN, Smartphone, Drucker und mehr",
-    ],
-  },
-  {
-    title: "Bewerbungsservice Schweiz",
-    text: "Professionelle Bewerbungsunterlagen nach Schweizer Standard",
-    points: [
-      "Schweizer Lebenslauf (Swiss CV Standard)",
-      "Motivationsschreiben mit ATS-Optimierung",
-      "Interview-Training mit realistischen Szenarien",
-      "Lehrstellen-Bewerbungen professionell aufbauen",
-      "Karriereorientierung (EFZ, EBA, BM, Studium)",
-    ],
-  },
-  {
-    title: "Lehrstellenbegleitung Schweiz",
-    text: "Strukturierte Begleitung für Jugendliche und Eltern",
-    points: [
-      "Erklärung des Schweizer Bildungssystems",
-      "Unterstützung bei Berufswahl und Entscheidungsfindung",
-      "Coaching für Eltern und Jugendliche",
-      "Bewerbungsstrategie über mehrere Wochen",
-      "Begleitung bis zum konkreten Ergebnis",
-    ],
-  },
-  {
-    title: "Digitale Kompetenz Kurs Schweiz",
-    text: "Fit für den Schweizer Arbeitsmarkt - mit praxisnahen digitalen Grundlagen",
-    points: [
-      "Professionelle E-Mail-Erstellung und -Nutzung",
-      "Ordnerstruktur und Cloud (OneDrive / Google Drive)",
-      "Word, Excel und PowerPoint Grundlagen",
-      "MS Teams / Zoom professionelles Verhalten",
-      "LinkedIn-Profil und Jobportale optimal nutzen",
-      "Cybersecurity Grundwissen für den Alltag",
-    ],
-  },
-  {
-    title: "Landingpage & Webdesign",
-    text: "Moderne, conversion-starke Webseiten für Selbstständige, KMU und lokale Dienstleistungen in der Schweiz",
-    points: [
-      "Individuelles Design passend zu Ihrer Marke",
-      "Klare Struktur für mehr Anfragen und Buchungen",
-      "Mobile-optimierte Darstellung auf allen Geräten",
-      "SEO-Grundoptimierung für bessere Sichtbarkeit",
-      "Texte, Call-to-Actions und Kontaktfluss aus einer Hand",
-      "Schnelle Umsetzung mit persönlicher Betreuung",
-    ],
-  },
-];
 
 const processSteps = [
   {
@@ -81,21 +20,6 @@ const processSteps = [
   {
     title: "Begleitung bis zum Ziel",
     text: "Kontinuierliche Optimierung bis zur Bewerbung, Einladung oder Lehrstellenzusage.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Für wen ist Karvio geeignet?",
-    a: "Für Jugendliche, Eltern, Stellensuchende, Quereinsteiger sowie Privatpersonen und KMU mit IT-Bedarf.",
-  },
-  {
-    q: "Wie schnell erhalte ich eine Antwort?",
-    a: "In der Regel innerhalb von 24 Stunden. Das Erstgespräch dauert 30 Minuten.",
-  },
-  {
-    q: "Sind die Dienstleistungen nur online?",
-    a: "Nein. Je nach Bedarf arbeiten wir online oder vor Ort in der Schweiz.",
   },
 ];
 
@@ -119,7 +43,22 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-1 text-base font-semibold sm:text-lg">
               <a href="#home" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Home</a>
               <a href="#about" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Über mich</a>
-              <a href="#services" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Leistungen</a>
+              <div className="group relative pb-2">
+                <a href="/leistungen" className="inline-flex rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">
+                  Leistungen
+                </a>
+                <div className="invisible pointer-events-none absolute left-0 top-full z-30 min-w-[330px] rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                  {karvioServices.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/leistungen/${service.slug}`}
+                      className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-sky-700"
+                    >
+                      {service.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <a href="#contact" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Kontakt</a>
             </div>
           </nav>
@@ -144,31 +83,6 @@ export default function Home() {
               Kostenloses Erstgespräch buchen
             </a>
           </div>
-        </div>
-      </section>
-
-      <section id="services" className="mx-auto max-w-6xl px-6 pb-12 sm:px-10 lg:px-16">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Unsere Leistungen</h2>
-          <p className="mt-2 max-w-3xl text-lg text-slate-600 sm:text-xl">
-            Vier Services, perfekt aufeinander abgestimmt - für digitale Kompetenz, starke Bewerbungsunterlagen
-            und nachhaltige Karrierebegleitung in der Schweiz.
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <article key={service.title} className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-sky-800">{service.text}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {service.points.map((point) => (
-                  <p key={point} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-800">
-                    {point}
-                  </p>
-                ))}
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -267,8 +181,8 @@ export default function Home() {
           </div>
           <div>
             <p className="font-semibold text-slate-900">Öffnungszeiten</p>
-            <p className="mt-2 text-slate-700">Montag - Freitag: 08:00 - 18:00</p>
-            <p className="text-slate-700">Samstag: nach Vereinbarung</p>
+            <p className="mt-2 text-slate-700">Mo - Fr: 18:00 - 21:00</p>
+            <p className="text-slate-700">Samstag: 09:00 - 18:00</p>
             <p className="text-slate-700">Sonntag: geschlossen</p>
           </div>
           <div>
