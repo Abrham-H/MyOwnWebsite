@@ -43,20 +43,22 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-1 text-base font-semibold sm:text-lg">
               <a href="#home" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Home</a>
               <a href="#about" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Über mich</a>
-              <div className="group relative pb-2">
+              <div className="group relative">
                 <a href="/leistungen" className="inline-flex rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">
                   Leistungen
                 </a>
-                <div className="invisible pointer-events-none absolute left-0 top-full z-30 min-w-[330px] rounded-xl border border-slate-200 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:opacity-100">
-                  {karvioServices.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={`/leistungen/${service.slug}`}
-                      className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-sky-700"
-                    >
-                      {service.title}
-                    </Link>
-                  ))}
+                <div className="invisible pointer-events-none absolute left-0 top-full z-30 min-w-[330px] pt-2 opacity-0 transition group-hover:visible group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                  <div className="rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                    {karvioServices.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/leistungen/${service.slug}`}
+                        className="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-sky-700"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
               <a href="#contact" className="rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100">Kontakt</a>
